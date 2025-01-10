@@ -1,4 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
-	@import "tailwindcss/base";
-	@import "tailwindcss/components";
-	@import "tailwindcss/utilities";
+  @use   "tailwindcss/base";
+	@use "tailwindcss/components";
+	@use "tailwindcss/utilities";
+
+
+  h1
+{
+    color: rgb(69, 69, 69);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+p{
+    font-size: 1rem;
+}
+.success {
+  color: rgb(55, 129, 208); // 藍色
+}
+
+.error {
+  color: rgb(197, 0, 0); // 紅色
+}
+
+.btn{
+    background-color: rgb(78, 95, 124);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    &:hover{
+        background-color: rgb(42, 42, 68);
+    }
+}
+

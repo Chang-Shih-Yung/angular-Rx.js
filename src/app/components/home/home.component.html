@@ -1,1 +1,19 @@
-<p>{{data}}</p>
+<div class="p-10 grid gap-5 border-2 border-gray-400 rounded-xl">
+  <h1>Home</h1>
+  <div class="flex justify-between  p-7 rounded-xl bg-gray-100">
+    <p>同步方法:</p>
+    <p class="success">成功訊息: {{ data }}</p>
+  </div>
+  <div class="flex justify-between p-7 rounded-xl bg-gray-100">
+    <p>非同步方法獲取到的資料:</p>
+    <p class="error">錯誤訊息: {{ errorMessage }}</p>
+  </div>
+  <nav class="flex justify-between p-7 rounded-xl bg-gray-100">
+  <button routerLink="/child" class="btn">Page1</button>
+  <button routerLink="/popup" class="btn">Page2</button>
+  <button routerLink="" class="btn">Page3</button>
+  <button routerLink="" class="btn">Page4</button>
+  <button routerLink="" class="btn">Page5</button>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

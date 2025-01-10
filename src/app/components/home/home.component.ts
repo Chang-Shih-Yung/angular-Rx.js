@@ -1,22 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RequestService } from '../../services/request.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, CommonModule],
+  imports: [RouterModule,FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  providers: [RequestService],
+  // providers: [RequestService],
 })
 //implements OnInit代表規範：該class必須實作OnInit這個方法
 export class HomeComponent implements OnInit {
   public data: string = '';
-  //service注入：官方用法
-  constructor(public requestService: RequestService) {}
 
-  ngOnInit(): void {
+  public errorMessage: string = '';
+
+  requestService = inject(RequestService);
+  //service注入：官方用法
+  // constructor(public requestService: RequestService) {}
+
+  async ngOnInit(): Promise<void> {
     //獲取同步方法
     this.data = this.requestService.getData();
 
@@ -45,19 +50,29 @@ export class HomeComponent implements OnInit {
         const promiseData = await this.requestService.getPromiseData();
         console.log('成功獲取Promise資料:', promiseData);
       } catch (error) {
-        console.error('Error fetching promise data:', error);
+        console.error('獲取Promise資料失敗:', error);
       }
     })();
 
     //獲取實際請求樣貌
+    //這裡都是實參，：有具體的值
     this.requestService
-      .getAsyncData2()
+      .getAsyncData()
       .then((data) => {
-        console.log('成功獲取資料:', data);
+        console.log('501:', data);
       })
       .catch((error) => {
-        console.error('獲取資料失敗:', error);
+        console.error('404:', error);
       });
+
+    //async -> try/catch調用封裝的非同步方法getAsyncData2
+    try {
+      const data2 = await this.requestService.getAsyncData2();
+      console.log('666:', data2);
+    } catch (error: any) {
+      this.errorMessage = error.message;
+      console.error('錯誤:', error);
+    }
 
     //rxjs用法
     //成功：在subscribe內傳遞成功訊息
@@ -72,7 +87,7 @@ export class HomeComponent implements OnInit {
       console.log(data);
     });
     setTimeout(() => {
-      d.unsubscribe();//1秒取消訂閱
-     }, 1000);
+      d.unsubscribe(); //1秒取消訂閱
+    }, 1000);
   }
 }
