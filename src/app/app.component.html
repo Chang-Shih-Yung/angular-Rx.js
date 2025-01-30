@@ -1,6 +1,6 @@
 <div class="p-10 m-10 grid gap-5 border-2 border-gray-400 rounded-3xl">
   <h1>根APP</h1>
-  <div class="flex justify-between items-center  p-7 rounded-xl bg-gray-100">
+  <div class="flex justify-between items-center p-2 rounded-xl bg-gray-100">
     <button class="btn" routerLink="/home">LOGO</button>
     <button class="btn" (click)="toggleRequest()">{{ request }}</button>
     <p *ngIf="welcomeMessage" class="text-green-500 mt-4">{{ welcomeMessage }}</p>
@@ -8,6 +8,7 @@
   </div>
   <!-- 頁面渲染 -->
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>
 
 <!-- 登錄畫面 -->

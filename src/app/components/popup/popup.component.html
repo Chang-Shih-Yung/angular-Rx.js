@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="w-full border-2 border-gray-400 rounded-xl p-8">
   <div class="flex justify-center">
     <div class="grid justify-items-start mt-20">
       <p class="font-semibold">Profile</p>
@@ -53,10 +53,10 @@
           <button (click)="doSubmit()" class="btn">Get Real-Time Data</button>
           <button (click)="downloadJson()" class="btn">下載JSON</button>
           <!-- <button (click)="downloadPdf()" class="btn">下載PDF</button> -->
-          <button routerLink="/home" class="btn">Back</button>
+          <button routerLink="/home" class="btn">Back to Home</button>
         </ul>
         <!-- 模板直接看到物件格式 -->
-        <!-- <pre>{{ peopleInfo | json }}</pre> -->
+        <pre>{{ peopleInfo | json }}</pre>
       </div>
     </div>
   </div>

@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-home',
-  imports: [RouterModule,FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   // providers: [RequestService],

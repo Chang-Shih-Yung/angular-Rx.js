@@ -4,10 +4,11 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule, LoginComponent, CommonModule, FormsModule],
+  imports: [RouterModule, LoginComponent, CommonModule, FormsModule,FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   // providers: [RequestService],
